@@ -7,6 +7,7 @@ public class Vendedor {
     double totalDeVendas;
     double percentualDaComissao;
     double valorDaComissaoEmReais;
+    int tempoCasa;
 
     public void obterDados(){
         Scanner leitor = new Scanner(System.in);
@@ -22,12 +23,17 @@ public class Vendedor {
         System.out.print("Qual o total de vendas do(a) vendedor(a) " + nomeVendedor + "? ");
         totalDeVendas = leitor.nextDouble();
 
+        //obtendo o tempo de casa do vendedor
+        System.out.print("Qual é o tempo de casa do vendedor? ");
+        tempoCasa = leitor.nextInt();
+        
+
         calcularComissao();
 
     }
 
     public void calcularComissao(){
-        if (totalDeVendas < 20000){
+        if (totalDeVendas < 20000 && tempoCasa >= 2){
             percentualDaComissao = 5;
         } else {
             percentualDaComissao = 10;
